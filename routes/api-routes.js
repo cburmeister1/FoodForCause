@@ -11,11 +11,16 @@ module.exports = function(app) {
     });
   });
 
-  app.get("/api/:name", function(req, res) {
-    if (req.params.name) {
+  // app.get("/api/:name", function(req, res) {
+  //   if (req.params.name) {
+  //     Item.findAll({
+  //       where: {
+  //         name: req.params.name
+  app.get("/api/:item", function(req, res) {
+    if (req.params.item) {
       Item.findAll({
         where: {
-          name: req.params.name
+          name: req.params.item
         }
       }).then(function(results) {
         res.json(results);
